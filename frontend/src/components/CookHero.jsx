@@ -2,9 +2,10 @@ import React from 'react';
 
 const CookHero = ({ onOpenInquiry }) => {
   return (
-    <section id="#" className="relative min-h-screen bg-[#F9F9F8] py-10 sm:py-12 flex flex-col items-center justify-center overflow-visible">
-      {/* Decorative Background Curve */}
-      {/* <div className="absolute inset-0 pointer-events-none">
+<section
+  id="home"
+  className="relative min-h-[90vh] lg:min-h-screen bg-[#F9F9F8] py-10 lg:py-14 flex items-center overflow-hidden"
+>      {/* <div className="absolute inset-0 pointer-events-none">
         <svg 
           className="absolute bottom-0 left-0 " 
           viewBox="0 0 1440 320" 
@@ -18,8 +19,7 @@ const CookHero = ({ onOpenInquiry }) => {
         </svg>
       </div> */}
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-        
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center relative z-10">        
         {/* Left Column: Content */}
         <div className="flex flex-col space-y-6 max-w-xl mx-auto lg:mx-0 px-2 sm:px-0">
           {/* Social Proof Tag */}
@@ -28,12 +28,12 @@ const CookHero = ({ onOpenInquiry }) => {
             </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-stone-900 leading-[1.15]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-stone-900 leading-[1.15]">
             Hire a <span className="text-[#D97706] font-semibold">Professional Cook</span> for Your Home
           </h1>
 
           {/* Description */}
-          <p className=" text-base sm:text-lg leading-relaxed font-sans">
+          <p className=" text-[15px] sm:text-lg leading-relaxed font-sans">
             From daily tiffin to grand celebrations — find vetted, skilled cooks who bring authentic flavours right to your kitchen.
           </p>
 
@@ -66,24 +66,23 @@ const CookHero = ({ onOpenInquiry }) => {
         </div>
 
         {/* Right Column: Imagery */}
-        <div className="relative justify-self-center px-2 sm:px-4 lg:justify-self-end w-full max-w-full sm:max-w-xl lg:max-w-md xl:max-w-lg aspect-[4/5] mx-auto">
-          
+        <div className="relative justify-self-center w-full max-w-[310px] sm:max-w-[430px] lg:max-w-md xl:max-w-lg aspect-[4/5] mx-auto">          
           {/* Floating Tag: Top Left */}
-          <div className="absolute -top-4 -left-4 bg-white shadow-md rounded-[27.5px] p-2.5 flex items-center space-x-2 z-20 border border-stone-100 text-[12px] font-semibold text-stone-800 lg:-left-15 ">
+          <div className="absolute top-3 left-3 sm:-top-4 sm:-left-4 bg-white rounded-full px-3 py-2 shadow-md border border-stone-200 text-[10px] sm:text-xs font-semibold z-20">
             <span>🧑🏻‍🍳 Professional cook in kitchen</span>
           </div>
 
           {/* Floating Tag: Right Side */}
-          <div className="absolute top-1/4 -right-10 lg:right-[-20px] bg-white backdrop-blur-md shadow-md rounded-[27.5px] px-3 py-2 flex items-center space-x-1.5 z-20 border border-stone-100 font-semibold text-stone-800">
+          <div className="absolute top-16 right-3 sm:top-1/4 sm:-right-8 lg:-right-5 bg-white rounded-full px-3 py-2 shadow-md border border-stone-200 text-[10px] sm:text-xs font-semibold z-20">
             <span className="text-[12px] p-0.5">✅ Verified & Trusted</span>
           </div>
 
           {/* Main Image Container */}
-          <div className="relative w-[625.12] h-full rounded-3xl overflow-hidden shadow-xl  border border-stone-200">
+<div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl border border-stone-200">  
             <img 
               src="chef.png" 
               alt="Professional Chef" 
-              className="w-full h-full object-cover object-top opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
+className="w-full h-full object-cover object-center lg:object-top opacity-90 transition duration-500 hover:mix-blend-normal"
             />
             {/* Vignette Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent"></div>
