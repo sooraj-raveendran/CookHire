@@ -45,7 +45,7 @@ Cook Connect is a MERN Stack web application that allows professional cooks to r
 ##  Project Structure
 
 ```
-Cook-Connect/
+COOKHIRE/
 │
 ├── frontend/
 │   ├── src/
@@ -226,6 +226,6 @@ Database:
 
 MERN Stack Developer
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/sooraj-raveendran
 
 Email: soorajraveendranotkl@gmail.com
