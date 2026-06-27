@@ -52,7 +52,7 @@ export const registerCook = async (req, res) => {
     });
 
     // Send email to admin
-    await sendCookRegistrationEmail(cook);
+    // await sendCookRegistrationEmail(cook);
 
     return res.status(201).json({
       success: true,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from "react-toastify";
 
-const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function CustomerRequestForm() {
   const [formData, setFormData] = useState({
