@@ -52,13 +52,19 @@ export const registerCook = async (req, res) => {
     });
 
     // Send email to admin
-    // await sendCookRegistrationEmail(cook);
+    sendCookRegistrationEmail(cook).catch((err) => {
+      console.error("Cook email error:", err);
+    });
+    
 
     return res.status(201).json({
       success: true,
       message: "Cook registration submitted successfully.",
       data: cook,
     });
+
+    
+
 
   } catch (error) {
     console.error("Cook Registration Error:", error);
