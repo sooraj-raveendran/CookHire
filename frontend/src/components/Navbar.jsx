@@ -123,7 +123,7 @@ export default function Navbar({ onOpenInquiry, onOpenRegistration,navigateToSec
         <button
           onClick={() => {
             setIsOpen(false);
-            navigateToSection("cuisines");
+            navigateToSection("areas-we-serve");
           }}
           className="block w-full text-left text-[16px] text-gray-700 hover:text-orange-500 transition"
         >
@@ -143,11 +143,11 @@ export default function Navbar({ onOpenInquiry, onOpenRegistration,navigateToSec
         <button
           onClick={() => {
             setIsOpen(false);
-            navigateToSection("contact");
+            navigateToSection("footer");
           }}
           className="block w-full text-left text-[16px] text-gray-700 hover:text-orange-500 transition"
         >
-          Contact Us
+          Contact us
         </button>
 
         <button

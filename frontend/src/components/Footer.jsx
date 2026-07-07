@@ -8,7 +8,7 @@ import {
 
 const Footer = ({onOpenInquiry, onOpenRegistration, navigateToSection}) => {
   return (
-    <footer className="bg-black text-white">
+    <footer  className="bg-black text-white">
       <div className="w-full px-8 lg:px-12 xl:px-16 py-12">
 
         {/* Top Section */}
@@ -89,7 +89,7 @@ const Footer = ({onOpenInquiry, onOpenRegistration, navigateToSection}) => {
 
           {/* Contact */}
           
-          <div className="col-span-2 lg:col-span-1">
+          <div id="footer" className="col-span-2 lg:col-span-1">
             <h3 className="uppercase font-semibold text-white text-base lg:text-lg mb-5">
               Contact Us
             </h3>
