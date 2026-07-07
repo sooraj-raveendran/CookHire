@@ -67,37 +67,57 @@ export const sendCustomerRegistrationEmail = async (customerData) => {
     const mailOptions = {
       from: process.env.MAIL_FROM || process.env.SMTP_USER,
       to: process.env.ADMIN_EMAIL,
-      subject: "New Customer Request - CookHire",
+      subject: "TEST - Find Cook Request",
+
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
-          <h2 style="color: #333; text-align: center;"> New Customer Request</h2>
-          
-          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin-top: 20px;">
-            <p style="margin: 10px 0;"><strong>Name:</strong> ${customerData.name || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Contact:</strong> ${customerData.contact || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Email:</strong> ${customerData.email || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Event Type:</strong> ${customerData.eventType || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Event Date:</strong> ${customerData.eventDate || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Number of Guests:</strong> ${customerData.numberOfGuests || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Cuisine Preference:</strong> ${customerData.cuisinePreference || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Budget:</strong> ${customerData.budget || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Location:</strong> ${customerData.location || "Not specified"}</p>
-            <p style="margin: 10px 0;"><strong>Special Requirements:</strong> ${customerData.specialRequirements || "None"}</p>
-          </div>
-          
-          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
-            <p>Request Date: ${new Date().toLocaleString()}</p>
-            <p>Please review this request and connect it with suitable cooks in the admin dashboard.</p>
-          </div>
-        </div>
+      <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;padding:20px;border:1px solid #ddd;border-radius:8px;">
+        <h2 style="color:#1B5C52;text-align:center;">
+          New Find Cook Request
+        </h2>
+
+        <p><strong>Full Name:</strong> ${customerData.fullName}</p>
+
+        <p><strong>Mobile Number:</strong> ${customerData.mobileNumber}</p>
+
+        <p><strong>Email:</strong> ${
+          customerData.email || "Not Provided"
+        }</p>
+
+        <p><strong>Location:</strong> ${customerData.location}</p>
+
+        <p><strong>Food Preference:</strong> ${customerData.foodPreference}</p>
+
+        <p><strong>Meals Required:</strong> ${customerData.mealsRequired}</p>
+
+        <p><strong>Preferred Gender:</strong> ${customerData.genderPreference}</p>
+
+        <p><strong>Family Size:</strong> ${customerData.familySize}</p>
+
+        <p><strong>Additional Requirements:</strong> ${
+          customerData.additionalRequirements || "None"
+        }</p>
+
+        <hr>
+
+        <p>Submitted At: ${new Date().toLocaleString()}</p>
+      </div>
       `,
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log("Customer registration email sent:", info.messageId);
-    return { success: true, messageId: info.messageId };
+
+    console.log("Find Cook email sent:", info.messageId);
+
+    return {
+      success: true,
+      messageId: info.messageId,
+    };
   } catch (error) {
-    console.error("Error sending customer registration email:", error);
-    return { success: false, error: error.message };
+    console.error(error);
+
+    return {
+      success: false,
+      error: error.message,
+    };
   }
 };

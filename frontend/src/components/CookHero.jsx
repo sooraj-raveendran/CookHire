@@ -1,10 +1,12 @@
 import React from 'react';
+import { FaSearch } from "react-icons/fa";
+import { FiChevronDown } from "react-icons/fi";
 
 const CookHero = ({ onOpenInquiry }) => {
   return (
 <section
   id="home"
-  className="relative min-h-[90vh] lg:min-h-screen bg-[#F9F9F8] py-10 lg:py-14 flex items-center overflow-hidden"
+  className="relative min-h-[90vh] lg:min-h-screen bg-[#1B5C52] py-10 lg:py-14 flex items-center overflow-hidden"
 >      {/* <div className="absolute inset-0 pointer-events-none">
         <svg 
           className="absolute bottom-0 left-0 " 
@@ -19,70 +21,107 @@ const CookHero = ({ onOpenInquiry }) => {
         </svg>
       </div> */}
 
-      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center relative z-10">        
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center relative z-10">        
         {/* Left Column: Content */}
         <div className="flex flex-col space-y-6 max-w-xl mx-auto lg:mx-0 px-2 sm:px-0">
           {/* Social Proof Tag */}
-          <div className="inline-flex items-center self-start bg-emerald-900/10 text-xs font-medium px-3 py-1 rounded-full border border-stone-300/40">
-            <span className="mr-1.5 ">✦ Trusted by 12,000+ households</span>
+          <div className="inline-flex items-center self-start bg-[#F28C282E] text-xs font-medium px-3 py-1 rounded-full border border-[#F28C28]">
+            <span className="mr-1.5 text-[#F28C28] ">✦ Trusted by 12,000+ households</span>
             </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-stone-900 leading-[1.15]">
-            Hire a <span className="text-[#D97706] font-semibold">Professional Cook</span> for Your Home
-          </h1>
+          <h2 className="text-3xl sm:text-5xl lg:text-5xl font-serif text-white leading-[1.15]">
+             Chennai's #1 Platform to Hire <span className="text-[#D97706] font-semibold">Trusted Home Cooks</span>
+          </h2>
 
           {/* Description */}
-          <p className=" text-[15px] sm:text-lg leading-relaxed font-sans">
-            From daily tiffin to grand celebrations — find vetted, skilled cooks who bring authentic flavours right to your kitchen.
+          <p className=" text-[15px] text-white sm:text-lg leading-relaxed font-sans">
+            From morning tiffin to family feasts find police verified cooks in your neighbourhood. South Indian, Chettinad, Jain, and 35+cuisines available today.
           </p>
 
           {/* Call to Actions */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:flex-wrap gap-3 pt-2">
-            <button
-              type="button"
-              onClick={() => onOpenInquiry?.()}
-              className="w-full sm:w-auto bg-[#D97706] hover:bg-[#B45309] text-white font-medium px-6 py-3 rounded-full shadow-sm transition-all duration-200 text-sm sm:text-base"
-            >
-              Find Cooks
-            </button>
-            <button className="w-full sm:w-auto border border-stone-400 hover:bg-stone-100 text-stone-700 font-medium px-6 py-3 rounded-full transition-all duration-200 text-sm sm:text-base">
-              Watch how it works
-            </button>
-          </div>
+          {/* Search Bar */}
+          {/* Search Bar */}
+<div className="mt-6 w-full">
+  <div className="lg:bg-white/10 lg:backdrop-blur-md lg:border lg:border-white/20 rounded-2xl lg:p-3">
 
-          {/* Region Trust Metric */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-4">
-            {/* Overlapping Avatars */}
-            <div className="flex -space-x-3 overflow-hidden">
-              <img className="inline-block h-9 w-9 rounded-full ring-2 ring-[#F9F9F8] object-cover" src="img-circle1.png" alt="Cook 1" />
-              <img className="inline-block h-9 w-9 rounded-full ring-2 ring-[#F9F9F8] object-cover" src="img-circle2.png" alt="Cook 2" />
-              <img className="inline-block h-9 w-9 rounded-full ring-2 ring-[#F9F9F8] object-cover" src="img-circle3.png" alt="Cook 3" />
-            </div>
-            <p className="text-xs sm:text-sm font-medium">
-              200+ verified cooks across Tamil Nadu
-            </p>
-          </div>
+    {/* First Row */}
+    <div className="grid grid-cols-2 lg:flex gap-3 items-center">
+
+      {/* Location */}
+      <div className="flex items-center h-12 px-4 rounded-xl border border-white/15 bg-white/5 lg:flex-1">
+        <FaSearch className="text-white/70 mr-3 text-sm flex-shrink-0" />
+
+        <input
+          type="text"
+          placeholder="Location"
+          className="w-full bg-transparent outline-none text-white placeholder:text-white/60 text-sm"
+        />
+      </div>
+
+      {/* Divider (Desktop Only) */}
+      <div className="hidden lg:block w-px h-8 bg-white/20"></div>
+
+      {/* Cuisine */}
+      <div className="relative h-12 rounded-xl border border-white/15 bg-white/5 lg:w-52">
+        <select
+          className="appearance-none w-full h-full bg-transparent px-4 text-white outline-none cursor-pointer text-sm"
+        >
+          <option className="text-black">Any Cuisine</option>
+          <option className="text-black">South Indian</option>
+          <option className="text-black">North Indian</option>
+          <option className="text-black">Continental</option>
+          <option className="text-black">Chinese</option>
+          <option className="text-black">Bengali</option>
+          <option className="text-black">Mughalai</option>
+          <option className="text-black">Gujarati</option>
+        </select>
+
+        <FiChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-white pointer-events-none" />
+      </div>
+
+      {/* Desktop Button */}
+      <button
+        className="hidden lg:block bg-[#F28C28] hover:bg-[#dc7f27]
+        text-white font-semibold px-7 py-3 rounded-xl whitespace-nowrap transition"
+      >
+        Find Cooks
+      </button>
+
+    </div>
+
+    {/* Mobile Button */}
+    <button
+      className="mt-3 lg:hidden w-full h-12 rounded-xl
+      bg-[#F28C28] hover:bg-[#dc7f27]
+      text-white font-semibold transition"
+    >
+      Find Cooks
+    </button>
+
+  </div>
+</div>
+
         </div>
 
         {/* Right Column: Imagery */}
         <div className="relative justify-self-center w-full max-w-[310px] sm:max-w-[430px] lg:max-w-md xl:max-w-lg aspect-[4/5] mx-auto">          
           {/* Floating Tag: Top Left */}
-          <div className="absolute top-3 left-3 sm:-top-4 sm:-left-4 bg-white rounded-full px-3 py-2 shadow-md border border-stone-200 text-[10px] sm:text-xs font-semibold z-20">
-            <span>🧑🏻‍🍳 Professional cook in kitchen</span>
-          </div>
+          <div className="hidden lg:block absolute -top-4 -left-4 bg-white rounded-full px-3 py-2 shadow-md border border-stone-200 text-xs font-semibold z-20">
+          <span>🧑🏻‍🍳 Professional cook in kitchen</span>
+        </div>
 
           {/* Floating Tag: Right Side */}
-          <div className="absolute top-16 right-3 sm:top-1/4 sm:-right-8 lg:-right-5 bg-white rounded-full px-3 py-2 shadow-md border border-stone-200 text-[10px] sm:text-xs font-semibold z-20">
-            <span className="text-[12px] p-0.5">✅ Verified & Trusted</span>
-          </div>
+          <div className="hidden lg:block absolute top-1/4 -right-5 bg-white rounded-full px-3 py-2 shadow-md border border-stone-200 text-xs font-semibold z-20">
+          <span>✅ Verified & Trusted</span>
+        </div>
 
           {/* Main Image Container */}
-<div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl border border-stone-200">  
+        <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-xl border border-stone-200">  
             <img 
-              src="chef.png" 
+              src="testimonial2.png" 
               alt="Professional Chef" 
-className="w-full h-full object-cover object-center lg:object-top opacity-90 transition duration-500 hover:mix-blend-normal"
+              className="w-full h-full] object-cover object-center lg:object-top opacity-90 transition duration-500 hover:mix-blend-normal"
             />
             {/* Vignette Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent"></div>
@@ -100,59 +139,80 @@ className="w-full h-full object-cover object-center lg:object-top opacity-90 tra
 
           {/* Floating CTA Button: Bottom Left */}
           <div id="cuisines" className="absolute -bottom-4 left-0 sm:-left-4 z-20 w-full flex justify-center sm:justify-start px-4">
-            <button
-              type="button"
-              onClick={() => onOpenInquiry?.()}
-              className="bg-[#D97706] hover:bg-[#B45309] rounded-[27.5px] text-white text-[12px] px-4 py-2.5 shadow-lg flex items-center justify-center space-x-1 transition-all duration-200 w-full sm:w-auto"
-            >
-              <span>⚡ Quick Matching</span>
-            </button>
+              <span className="hidden lg:flex bg-white hover:bg-[#B45309] rounded-[27.5px]  text-[12px] px-4 py-2.5 shadow-lg  items-center justify-center space-x-1 transition-all duration-200 w-full sm:w-auto"
+                >⚡ Quick Matching</span>
           </div>
 
         </div>
-        <div  className="mt-10 col-span-full w-screen relative left-1/2 -ml-[50vw]">
-          <div className="w-full px-0 sm:px-0">
-            <div className="flex items-stretch overflow-hidden rounded-none shadow-md border-y border-stone-200/80 bg-[#0A231C]">
-              <div className="bg-[#D35411] text-white font-serif text-lg md:text-xl font-medium pl-10 md:pl-16 lg:pl-32 pr-6 flex items-center justify-center shrink-0 tracking-wide select-none">
-                Cuisines
-              </div>
+<div className="mt-10 col-span-full w-screen relative left-1/2 -ml-[50vw]">
 
-              <ul className="bg-[#1B4B3F] text-gray-300 flex items-center gap-6 md:gap-8 px-6 overflow-x-auto no-scrollbar w-full whitespace-nowrap text-sm md:text-base font-sans py-4 list-disc list-inside m-0 p-0">
-                <li className="shrink-0 list-none">
-                  <a href="#" className="hover:text-white transition-colors duration-200">Cuisine</a>
-                </li>
+  {/* Top Green Bar */}
+  <div className="flex overflow-x-auto no-scrollbar bg-[#18493F] whitespace-nowrap">
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">Continental</a>
-                </li>
+    {/* Orange Label */}
+    <div className="bg-[#F28C28] text-white font-serif text-xl font-semibold px-10 py-5 shrink-0 flex items-center justify-center">
+      Cuisines
+    </div>
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">Chinese</a>
-                </li>
+    {/* Cuisine List */}
+    <div className="flex items-center gap-10 px-8 text-white text-sm lg:text-base shrink-0">
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">South Indian</a>
-                </li>
+      <span className="py-5">Cuisine</span>
+      <span className="py-5">• Continental</span>
+      <span className="py-5">• Chinese</span>
+      <span className="py-5">• South Indian</span>
+      <span className="py-5">• North Indian</span>
+      <span className="py-5">• Bengali</span>
+      <span className="py-5">• Mughlai</span>
+      <span className="py-5">• Gujarati</span>
+      <span className="py-5">• Italian</span>
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">North Indian</a>
-                </li>
+    </div>
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">Bengali</a>
-                </li>
+  </div>
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">Mughlai</a>
-                </li>
+  {/* White Feature Bar */}
+  <div className="bg-white border-y border-stone-200 overflow-x-auto no-scrollbar">
 
-                <li className="shrink-0">
-                  <a href="#" className="hover:text-white transition-colors duration-200">Gujarati</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    <div className="flex items-center gap-8 px-6 py-3 text-sm text-black whitespace-nowrap min-w-max lg:justify-center">
+
+<div className="flex items-center gap-1">
+      <img src="Shield-Star--Streamline-Solar.png" alt="" />
+      <span>Police Verified Cooks</span>
+</div>
+
+      <span className="text-black">|</span>
+
+<div className="flex items-center gap-1">
+      <img src="Shield-Star--Streamline-Solar.png" alt="" />
+      <span>Aadhaar & Document Check</span>
+</div>
+
+      <span className="text-black">|</span>
+
+<div className="flex items-center gap-1">
+      <img src="Shield-Star--Streamline-Solar.png" alt="" />
+      <span>Book in Under 2 Hours</span>
+</div>
+
+      <span className="text-black">|</span>
+<div className="flex items-center gap-1">
+      <img src="Shield-Star--Streamline-Solar.png" alt="" />
+      <span>Free Replacement Guarantee</span>
+</div>
+
+      <span className="text-black">|</span>
+
+<div className="flex items-center gap-1">
+        <img src="Shield-Star--Streamline-Solar.png" alt="" />
+        <span>No Hidden Charges</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
       </div>
 
       

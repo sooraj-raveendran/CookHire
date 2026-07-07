@@ -1,88 +1,155 @@
-import React from 'react'
+import React from "react";
+import {
+  Phone,
+  MessageCircle,
+  Mail,
+  MapPin,
+} from "lucide-react";
 
-export default function Footer({ onOpenInquiry }) {
+const Footer = ({onOpenInquiry, onOpenRegistration, navigateToSection}) => {
   return (
-    <footer className="bg-[#114232] text-white font-sans selection:bg-[#F28C28]/30">
-  
-  <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 text-center border-b border-white/10">
-    <span className="text-xs font-semibold tracking-widest uppercase text-white/70 block mb-3">
-      Get Started
-    </span>
-    <h2 className="text-3xl md:text-5xl font-serif text-white max-w-2xl mx-auto leading-tight mb-4">
-      Ready to have <span className="text-[#E87617] italic font-normal">delicious food</span> cooked at home?
-    </h2>
-    <p className="text-sm md:text-base text-white/80 max-w-lg mx-auto mb-8 font-light leading-relaxed">
-      Join 12,000+ families who eat better every day with CookHire. We'll connect you with a trusted, skilled cook fast.
-    </p>
-    <button className="bg-[#E87617] hover:bg-[#d97706] text-white font-medium px-8 py-3 rounded-full shadow-lg transition-all transform hover:scale-105 duration-200 text-sm md:text-base"
-    onClick={() => onOpenInquiry?.()}
-    type="button"
-    >
-      Hire a Cook Now
-    </button>
-  </div>
+    <footer className="bg-black text-white">
+      <div className="w-full px-8 lg:px-12 xl:px-16 py-12">
 
-  <div className="max-w-7xl mx-auto px-6 py-12">
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-      
-      <div className="space-y-3">
-        <div className="text-2xl font-bold tracking-tight">
-          Cook<span className="text-[#F28C28]">Hire</span>
+        {/* Top Section */}
+        <div className="flex flex-col lg:flex-row justify-between gap-10">
+
+          {/* Logo */}
+            <div className="lg:w-[42%] mb-4 lg:mb-0">
+            <h2 className="text-4xl font-bold">
+              <span className="text-white">Cook</span>
+              <span className="text-[#FF9D1B]">Hire</span>
+            </h2>
+
+            <p className="mt-4 max-w-sm text-sm leading-7 text-[#B5B5B5]">
+              Chennai's most trusted platform to hire verified home cooks.
+              Connecting skilled cooks with families across 38 localities
+              since 2022.
+            </p>
+          </div>
+
+          {/* Families */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 mt-10 lg:mt-0 lg:flex lg:flex-row lg:gap-20">
+          <div>
+            <h3 className="uppercase font-semibold text-white text-base lg:text-lg mb-5">
+              For Families
+            </h3>
+
+            <ul className="space-y-4 text-[#B5B5B5] text-sm">
+              <li 
+              onClick={onOpenInquiry}
+              className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Hire a Cook
+              </li>
+              <li 
+              onClick={() => navigateToSection("how-it-works")}
+              className="hover:text-[#FF9D1B] cursor-pointer transition">
+                How it Works
+              </li>
+              <li className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Pricing
+              </li>
+              <li 
+              onClick={() => navigateToSection("areas-we-serve")}
+              className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Area We Serve
+              </li>
+              <li className="hover:text-[#FF9D1B] cursor-pointer transition">
+                FAQs
+              </li>
+            </ul>
+          </div>
+
+          {/* Cooks */}
+          <div>
+            <h3 className="uppercase font-semibold text-white text-base lg:text-lg mb-5">
+              For Cooks
+            </h3>
+
+            <ul className="space-y-4 text-[#B5B5B5] text-sm">
+              <li
+              onClick={onOpenRegistration} 
+              className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Join as a Cook
+              </li>
+              <li className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Cook Benefits
+              </li>
+              <li className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Guidelines
+              </li>
+              <li className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Earning Guide
+              </li>
+              <li className="hover:text-[#FF9D1B] cursor-pointer transition">
+                Cook Support
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className="uppercase font-semibold text-white text-base lg:text-lg mb-5">
+              Contact Us
+            </h3>
+
+            <div className="space-y-4 text-[#B5B5B5] text-sm">
+
+              <div className="flex items-center gap-3">
+                <Phone
+                  size={18}
+                  className="text-[#FF9D1B]"
+                />
+                <span>+91 98400 XXXXX</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <MessageCircle
+                  size={18}
+                  className="text-[#FF9D1B]"
+                />
+                <span>WhatsApp Us</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Mail
+                  size={18}
+                  className="text-[#FF9D1B]"
+                />
+                <span>hello@cookhire.in</span>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin
+                  size={18}
+                  className="text-[#FF9D1B] mt-1"
+                />
+                <span>Chennai, Tamil Nadu</span>
+              </div>
+
+            </div>
+          </div>
+          </div>
+
         </div>
-        <p className="text-xs md:text-sm text-white/70 font-light max-w-xs">
-          Trusted cooks for every home & event.
-        </p>
-      </div>
 
-      <div>
-        <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-4">
-          Company
-        </h3>
-        <ul className="space-y-2.5 text-xs md:text-sm text-white/70">
-          <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-          <li><a href="#" className="hover:text-white transition-colors">How it Works</a></li>
-          <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-        </ul>
-      </div>
+        {/* Divider */}
+        <div className="border-t border-[#2A2A2A] my-10"></div>
 
-      <div>
-        <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-4">
-          Service
-        </h3>
-        <ul className="space-y-2.5 text-xs md:text-sm text-white/70">
-          <li><a href="#" className="hover:text-white transition-colors">Home Cooking</a></li>
-          <li><a href="#" className="hover:text-white transition-colors">Part-Time Cook</a></li>
-          <li><a href="#" className="hover:text-white transition-colors">Full-Time Cook</a></li>
-          <li><a href="#" className="hover:text-white transition-colors">Event Cook</a></li>
-        </ul>
-      </div>
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm text-[#B5B5B5]">
 
-      <div>
-        <h3 className="text-xs font-bold tracking-wider uppercase text-white mb-4">
-          Legal
-        </h3>
-        <ul className="space-y-2.5 text-xs md:text-sm text-white/70">
-          <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-          <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-        </ul>
-      </div>
+          <p>© 2026 CookHire. All rights reserved.</p>
 
-    </div>
-  </div>
+          <p>
+            Made with ❤️ Geekstack
+          </p>
 
-  <div className="border-t border-white/10 bg-[#0d3326]">
-    <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/60">
-      <div>
-        &copy; 2026 CookHire. All rights reserved.
+        </div>
       </div>
-      <div className="flex items-center gap-1 font-light">
-        Made with 
-        <span className="text-red-500 animate-pulse">❤️</span> 
-        <span>Geekstack</span>
-      </div>
-    </div>
-  </div>
-
-</footer>
+    </footer>
   );
-}
+};
+
+export default Footer;

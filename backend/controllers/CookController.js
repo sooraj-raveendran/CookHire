@@ -1,78 +1,70 @@
 import Cook from "../models/Cook.js";
-import { sendCookRegistrationEmail } from "../services/mailService.js";
 
-export const registerCook = async (req, res) => {
+const registerCook = async (req, res) => {
   try {
-    // Honeypot spam protection
-    if (req.body.honeypot) {
-      return res.status(400).json({
-        success: false,
-        message: "Spam detected.",
-      });
-    }
+    // Convert JSON strings back to arrays
+    const cuisines = JSON.parse(req.body.cuisines || "[]");
+    const workTypes = JSON.parse(req.body.workTypes || "[]");
+    const availableDays = JSON.parse(req.body.availableDays || "[]");
+    const languages = JSON.parse(req.body.languages || "[]");
 
-    const {
-      name,
-      contact,
-      experience,
-      cuisineSpecialization,
-      workType,
-      preferredLocation,
-      notes,
-    } = req.body;
-
-    // Validation
-    if (!name || !contact) {
-      return res.status(400).json({
-        success: false,
-        message: "Name and contact are required.",
-      });
-    }
-
-    // Uploaded files
-    const profilePhoto = req.files?.profilePhoto
-      ? req.files.profilePhoto[0].filename
-      : "";
-
-    const document = req.files?.document
-      ? req.files.document[0].filename
-      : "";
-
-    // Save to MongoDB
     const cook = await Cook.create({
-      name,
-      contact,
-      experience,
-      cuisineSpecialization,
-      workType,
-      preferredLocation,
-      notes,
-      profilePhoto,
-      document,
+      // Step 1
+      photo: req.files.photo?.[0]?.filename || "",
+      fullName: req.body.fullName,
+      mobile: req.body.mobile,
+      gender: req.body.gender,
+      dob: req.body.dob,
+
+      // Step 2
+      houseNo: req.body.houseNo,
+      street: req.body.street,
+      city: req.body.city,
+      district: req.body.district,
+      pincode: req.body.pincode,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
+
+      // Step 3
+      aadhaar: req.files.aadhaar?.[0]?.filename || "",
+      pan: req.files.pan?.[0]?.filename || "",
+      policeCertificate: req.files.policeCertificate?.[0]?.filename || "",
+      certificate: req.files.certificate?.[0]?.filename || "",
+      drivingLicense: req.files.drivingLicense?.[0]?.filename || "",
+
+      // Step 4
+      experience: req.body.experience,
+      cuisines,
+      foodPreference: req.body.foodPreference,
+      workTypes,
+
+      // Step 5
+      availableDays,
+      availableFrom: req.body.availableFrom,
+      availableTo: req.body.availableTo,
+      languages,
+      salary: req.body.salary,
+      preferredArea: req.body.preferredArea,
+      emergencyContact: req.body.emergencyContact,
+
+      agreeVerification: req.body.agreeVerification === "true",
+      agreeTerms: req.body.agreeTerms === "true",
+      agreeAccuracy: req.body.agreeAccuracy === "true",
     });
 
-    // Send email to admin
-    sendCookRegistrationEmail(cook).catch((err) => {
-      console.error("Cook email error:", err);
-    });
-    
-
-    return res.status(201).json({
+    res.status(201).json({
       success: true,
-      message: "Cook registration submitted successfully.",
-      data: cook,
+      message: "Cook registered successfully",
+      cook,
     });
-
-    
-
-
   } catch (error) {
     console.error("Cook Registration Error:", error);
 
-    return res.status(500).json({
+    res.status(500).json({
       success: false,
-      message: "Internal Server Error",
-      error: error.message,
+      message: error.message,
     });
   }
 };
+
+export default registerCook;

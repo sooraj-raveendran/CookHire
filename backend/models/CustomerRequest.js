@@ -1,31 +1,51 @@
 import mongoose from "mongoose";
 
-const customerRequestSchema = new mongoose.Schema(
+const findCookSchema = new mongoose.Schema(
   {
-    name: {
+    fullName: {
       type: String,
       required: true,
       trim: true,
     },
-    contact: {
-      type: String,
-      required: true,
-      trim: true,
-    },
+
     location: {
       type: String,
       required: true,
-      trim: true,
     },
-    serviceRequirement: {
+
+    mobileNumber: {
       type: String,
       required: true,
-      trim: true,
     },
-    additionalNotes: {
+
+    email: {
       type: String,
       default: "",
-      trim: true,
+    },
+
+    foodPreference: {
+      type: String,
+      required: true,
+    },
+
+    mealsRequired: {
+      type: String,
+      required: true,
+    },
+
+    genderPreference: {
+      type: String,
+      required: true,
+    },
+
+    familySize: {
+      type: String,
+      required: true,
+    },
+
+    additionalRequirements: {
+      type: String,
+      default: "",
     },
   },
   {
@@ -33,4 +53,4 @@ const customerRequestSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("CustomerRequest", customerRequestSchema);
+export default mongoose.model("FindCook", findCookSchema);

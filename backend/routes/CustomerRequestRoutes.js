@@ -1,8 +1,8 @@
 import express from "express";
-import { createRequest } from "../controllers/CustomerRequestController.js";
+import { submitFindCook } from "../controllers/CustomerRequestController.js";
 
 const router = express.Router();
 
-router.post("/", createRequest);
+router.post("/", submitFindCook);
 
 export default router;
